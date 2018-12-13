@@ -1,0 +1,110 @@
+/**********Table***********/
+.tablelist h3{
+	padding-top:10px;
+	padding-bottom:20px;
+    clear:both;
+}
+.tablelist table{
+	border:1px solid #e4e4e3;
+	width:100%;
+	border-collapse:collapse;
+	
+}
+.tablelist table th{
+	border:1px solid #e4e4e3;
+	padding:6px 8px;
+	text-align:center;
+	font-weight:bold;
+}
+.tablelist table td{
+	border:1px solid #e4e4e3;
+	padding:6px 8px;
+}
+.tablelist table td a{
+	color:#0b72b7;
+}
+.tablelist table td a:hover{
+	text-decoration:underline;
+}
+.tablelist table td.center{
+	text-align:center;
+}
+.tablelist table tr:hover{
+	background-color:#f6f6f6;
+}
+
+.tablelist .order-input{/**列表中的排序输入框**/
+	height: 12px;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	padding:7px;
+	width:40px;
+}
+
+.table_info{/**表格下方的数据信息***/
+	float: left;
+	line-height: 27px;
+	color: #898989;
+}
+
+/*****************分页***************/
+#pagelist {
+	height: 40px;
+	line-height: 40px;
+	margin:15px auto;
+}
+#pagelist .pageinfo {/**表格上方的数据信息***/
+	min-width: 100px;
+	float: left;
+	line-height: 33px;
+}
+#pagelist .pagenum {
+	min-width: 93px;
+	width: auto;
+	float: right;
+	line-height: 40px;
+}
+#pagelist .pagenum a{
+	color:#666;
+}
+#pagelist .page_prev {
+	width: 50px;
+	height: 25px;
+	line-height: 25px;
+	float: left;
+	text-align: center;
+	border: 1px solid #0c72b8;
+	margin: 3px;
+}
+#pagelist .pagenum .pager {
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	float: left;
+	text-align: center;
+	border: 1px solid #0c72b8;
+	margin: 3px;
+}
+#pagelist .pagenum .active {
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	float: left;
+	color: #fff;
+	text-align: center;
+	border: 1px solid #fff;
+	background: #0c72b8;
+	margin: 3px;
+}
+#pagelist .pagenum .active a{
+	color:#fff;
+}
+#pagelist .page_prev {
+	width: 50px;
+	height: 25px;
+	line-height: 25px;
+	float: left;
+	text-align: center;
+	border: 1px solid #0c72b8;
+	margin: 3px;
+}

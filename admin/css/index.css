@@ -1,0 +1,71 @@
+#main_index{
+	width:98%;
+	margin:0 auto;
+}
+/************indexbox************/
+.indexbox{
+	float:left;
+	width:30%;
+	margin-top:30px;
+	margin-left:30px;
+}
+
+.indexbox .title{
+	height:35px;
+	line-height:35px;
+	color:#113452;
+	padding-left:38px;
+	font-weight:bold;
+}
+.indexbox .icondefault{
+	background:#bbdcf3 url("../images/index/doc.png") no-repeat 9px 7px;
+	background-size:20px 20px;
+	
+}
+.indexbox .iconstat{
+	background:#bbdcf3 url("../images/index/stat.png") no-repeat 9px 7px;
+	background-size:20px 20px;
+}
+.indexbox .iconalarm{
+	background:#bbdcf3 url("../images/index/alarm.png") no-repeat 9px 7px;
+	background-size:20px 20px;
+}
+.indexbox .iconinfo{
+	background:#bbdcf3 url("../images/index/info.png") no-repeat 9px 7px;
+	background-size:20px 20px;
+}
+.indexbox .content{
+	border:1px solid #ccc;
+	height:145px;
+}
+
+/************indextable************/
+.indextable{
+	border-collapse:collapse;
+	border:0;
+	width:100%;
+	text-align:center;
+}
+.indextable tr{
+	height:29px;
+}
+.indextable td{
+	padding-left:20px;
+}
+.indextable td.c1{
+	text-align:right;
+	font-weight:bold;
+}
+.indextable td.c2{
+	color:red;
+}
+.indextable td.c2 a{
+	color:red;
+}
+.indextable td.c2 a:hover{
+	text-decoration:underline;
+}
+.indextable td.c3 a{
+	color:#16568b;
+	text-decoration:underline;
+}

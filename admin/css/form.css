@@ -1,0 +1,302 @@
+/***********表单form*************/
+.zm_form_wrap{
+	width: 100%;
+}
+.zm_form_wrap p{
+	padding:10px 0;
+	clear:both;
+}
+.zm_form_wrap h3{
+	padding-top:10px;
+	padding-bottom:20px;
+}
+
+/**标签**/
+.zm_form_wrap label{
+	text-align:right;
+	float: left;
+	width: 140px;
+	padding-right: 15px;
+	display:block;
+	line-height:34px;
+	font-weight:bold;
+}
+/**输入框**/
+.zm_form_wrap .text-input{
+	height: 18px;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	float:left;
+	padding:7px;
+}
+
+.zm_form_wrap .input-length-10{
+	width:10%;
+}
+
+.zm_form_wrap .input-length-30{
+	width:30%;
+}
+
+.zm_form_wrap .input-length-50{
+	width:50%;
+}
+
+/**单选按钮**/
+.zm_form_wrap .radio-input{
+	margin-top: 10px;
+	line-height: normal;
+	color: #555555;
+	float:left;
+	border: 1px solid #cccccc;
+	padding-left:5px;
+}
+.zm_form_wrap span.radio-text{
+	text-align:left;
+	float: left;
+	padding:0 15px;
+	text-align: left;
+	display:block;
+	line-height:32px;
+	min-width:50px;
+}
+
+/**多选按钮**/
+.zm_form_wrap .checkbox-input{
+	margin-top: 10px;
+	line-height: normal;
+	color: #555555;
+	float:left;
+	border: 1px solid #cccccc;
+	padding-left:5px;
+}
+/**Textarea 和 编辑器**/
+.zm_form_wrap .text-area{
+	width: 50%;
+	height: 60px;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	float:left;
+	padding:7px;
+}
+.zm_form_wrap .editor{
+	float:left;
+	width:70%;
+}
+/**下拉选择**/
+.zm_form_wrap .select-option{
+	height: 34px;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	float:left;
+	padding:7px;
+}
+
+/**表单提交、保存、返回等Button按钮**/
+.zm_form_wrap .btn_submit{
+	background-color: #f89406;
+	color: #ffffff;
+	padding: 9px 14px;
+	font-size: 15px;
+	line-height: normal;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	cursor:pointer;
+}
+.zm_form_wrap .btn{
+	color: #ffffff;
+	padding: 9px 14px;
+	font-size: 15px;
+	line-height: normal;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	cursor:pointer;
+}
+.zm_form_wrap .btn_back{
+	background-color: gray;
+}
+.zm_form_wrap .btn_save{
+	background-color: #175bf8;
+}
+
+/**信息提示**/
+.zm_form_wrap .warn-inline{
+	float:left;
+	color:red;
+	line-height:34px;
+	margin-left:15px;
+}
+.zm_form_wrap .warn-block{
+	width:500px;
+	color:#898989;
+	line-height:24px;
+	display:block;
+	clear:both;
+	padding:3px 10px 3px 155px;
+}
+
+/****/
+.zm_form_wrap span.span-text{
+	text-align:left;
+	float: left;
+	padding-left: 15px;
+	text-align: left;
+	display:block;
+	line-height:34px;
+}
+.zm_form_wrap span.detail_span{
+	text-align:left;
+	float: left;
+	padding-left: 15px;
+	text-align: left;
+	display:block;
+	line-height:34px;
+}
+
+/**********************上传************************/
+/**图片上传样式**/
+.zm_form_wrap .pic_upload{
+	position:relative;
+	width:300px;
+	height:200px;
+	background-color:#ccc;
+	float:left;
+	/**图片居中显示**/
+	display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    -webkit-box-align:center;
+    -moz-box-align:center;
+    box-align:center;
+    -webkit-box-pack:center;
+    -moz-box-pack:center;
+    box-pack:center;
+	
+}
+.zm_form_wrap .pic_upload .picfile{
+	width: 300px;
+	height: 200px;
+	opacity: 0;
+	outline: none;
+	cursor:pointer;
+}
+.zm_form_wrap .pic_upload .icon{
+	position:absolute;
+	top:68px;
+	left:118px;
+}
+.zm_form_wrap .pic_upload .close{
+	position:absolute;
+	top:-16px;
+	right:-16px;
+	z-index:999;
+	cursor:pointer;
+}
+.zm_form_wrap .pic_upload .close img{
+	width:32px;
+}
+
+/**文件上传样式**/
+.zm_form_wrap .file_upload{
+	position:relative;
+	width:500px;
+	height:34px;
+	line-height: 34px;
+	float:left;
+}
+.zm_form_wrap .file_upload .upfile{
+	position:absolute;
+	top:0;left:0;
+	z-index:999;
+	width: 90px;
+	height: 27px;
+	opacity: 0;
+	outline: none;
+	cursor:pointer;
+}
+.zm_form_wrap .file_upload .text{
+	position:absolute;
+	top:0;left:0;
+	width: 88px;
+	height: 25px;
+	line-height: 25px;
+	text-align:center;
+	z-index:1;
+	background-color: #0c72b8;
+    color: #ffffff;
+    font-size: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+}
+.zm_form_wrap .file_upload .filepath{
+	width:400px;
+	height:34px;
+	color: #0c72b8;
+	overflow:hidden;
+	float:left;
+}
+.zm_form_wrap .file_upload .close{
+	width:32px;
+	height:32px;
+	float:left;
+	cursor:pointer;
+}
+.zm_form_wrap .file_upload .close img{
+	width:32px;
+}
+
+/***************列表上方的操作区域****************/
+.zm_handle{
+	height:40px;
+	border-bottom:6px solid #b8dbf2;
+	position:relative;
+}
+.zm_handle .filter{
+	float:left;
+	width:65%;
+}
+.zm_handle .btns{
+	float:right;
+	width:30%;
+	text-align:right;
+}
+.zm_handle .filter .input{
+	height: 18px;
+	width: 195px;
+	padding: 3px;
+	border: #0c72b8 1px solid;
+	border-radius: 3px;
+}
+.zm_handle .filter .select{
+	height : 26px;
+	padding : 3px;
+	border: 1px solid #0c72b8;
+	border-radius: 3px;
+}
+/*****************各种颜色的操作按钮***************/
+.btn-handle{
+    background-color: #0c72b8;
+    color: #ffffff;
+    padding: 5px 14px;
+    font-size: 15px;
+    line-height: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    cursor: pointer;
+	margin-left:4px;
+}
+.btn-handle.btn-grey{
+    background-color: #767676;
+}
+.btn-handle.btn-green{
+    background-color: #21BA45;
+}
+.btn-handle.btn-red{
+    background-color: #DB2828;
+}
+.btn-handle.btn-orange{
+    background-color: orange;
+}
+.btn-handle.btn-yellow{
+    background-color: #FBBD08;
+}

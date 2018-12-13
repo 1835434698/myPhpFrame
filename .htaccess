@@ -1,0 +1,45 @@
+#提示1：如果需要.htaccess作用生效，Apache配置文件中必须加载rewrite_module且httpd.conf中须将AllowOverride设为All。
+#提示2：.htaccess对性能有降低，如果有权限配置httpd.conf，可尽量不使用.htaccess。
+
+RewriteEngine on
+
+#自定义错误页面
+ErrorDocument 403 /errors/403.html
+ErrorDocument 404 /errors/404.html
+ErrorDocument 500 /errors/500.html
+
+#禁止访问日志、数据库等文件
+<FilesMatch (.*)\.(log|sql|svn|txt)$>
+order allow,deny
+deny from all
+</FilesMatch>
+
+#禁止目录浏览
+Options All -Indexes
+
+#======================常用配置参考================================
+
+#将诸如zhimawork.com 永久定向(301)到www.zhimawork.com
+#RewriteCond %{HTTP_HOST} !^localhost$ [NC]
+#RewriteCond %{HTTP_HOST} !^www.zhimawork.com$ [NC]
+#RewriteRule ^(.*)$ http:/www.baidu.com/$1 [L,R=301]
+
+#图片防盗链
+#RewriteCond %{HTTP_REFERER} !^$
+#RewriteCond %{HTTP_REFERER} !^http://(www.)?zhimawork.com/.*$ [NC]
+#RewriteRule .(gif|jpe?g|png)$ http:/www.baidu.com/images/nohotlink.jpg [R,L]
+
+
+#网站升级的时候，只有特定IP才能访问，其他的用户将看到一个升级页面
+#RewriteCond %{REQUEST_URI} !/upgrade.html$
+#RewriteCond %{REMOTE_HOST} !^24\.121\.202\.30
+#RewriteRule $ http:/www.baidu.com/upgrade.html [R=302,L]
+
+
+#根据IP禁止用户访问
+#order allow,deny
+#deny from 123.45.6.7
+#allow from all
+
+#修改默认首页
+#DirectoryIndex home.html

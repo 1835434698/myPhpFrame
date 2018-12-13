@@ -1,0 +1,33 @@
+/********状态**********/
+.status {
+	color: #fff;
+	padding: 2px 4px;
+}
+.status.orange {
+	background-color:orange;
+}
+.status.blue {
+	background-color:blue;
+}
+.status.red {
+	background-color:red;
+}
+.status.green {
+	background-color:green;
+}
+
+.textcontent {
+	clear:both;
+	height:500px;
+	overflow-y:scroll;
+	background-color:#eee;
+	padding:20px;
+	line-height:28px;
+}
+.tips {
+	border:1px solid green;
+	margin-bottom:10px;
+	padding:10px;
+	background-color:#eee;
+	color:#009900;
+}
