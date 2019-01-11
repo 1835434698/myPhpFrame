@@ -10,21 +10,21 @@
 
 //基础设置=================================================
 //error_reporting(0);                          //网站开发时，务必关闭此项；网站上线时，务必打开此项。
-define("ZHIMAPHP_VERSION", '5.0');          //ZhimaPHP版本号（）
-define("ZHIMAPHP_UPDATE",  '20181018');        //ZhimaPHP更新日期
+define("TANGZYPHP_VERSION", '5.0');          //TangzyPHP版本号（）
+define("TANGZYPHP_UPDATE",  '20181018');        //TangzyPHP更新日期
 header("content-type:text/html;charset=utf-8");
 date_default_timezone_set('PRC');              //时区设置，服务器放置在国外的需要打开此项
 session_start();
 //ob_start();
-define("PROJECTCODE",    'ZhimaPHP');          //项目编号，建议修改，每个项目应该不同
-$HTTP_PATH = 'https://www.zhimawork.com/';     //网站访问路径，根据实际情况修改，务必以“/”结尾。
+define("PROJECTCODE",    'TangzyPHP');          //项目编号，建议修改，每个项目应该不同
+$HTTP_PATH = 'http://localhost/';     //网站访问路径，根据实际情况修改，务必以“/”结尾。
 
 //数据库连接参数设置=======================================
 $DB_host   = 'localhost';                      //数据库地址
 $DB_user   = 'root';                           //数据库用户
-$DB_pass   = 'root';                           //数据库用户密码
-$DB_name   = 'zhimaphp';                       //数据库名称
-$DB_prefix = 'zhimaphp_';                      //表前缀，可以为空
+$DB_pass   = '123456';                           //数据库用户密码
+$DB_name   = 'tangzy';                       //数据库名称
+$DB_prefix = 'tangzy_';                      //表前缀，可以为空
 
 
 /*********以下配置一般不用修改***********/

@@ -83,8 +83,8 @@ function get_format_filesize($size) {
 						</tr>
 						<tr>
 							<td class="center">3</td>
-                            <td>ZhimaPHP版本</td>
-							<td><?php echo ZHIMAPHP_VERSION.'('.ZHIMAPHP_UPDATE.')';?></td>
+                            <td>TangzyPHP版本</td>
+							<td><?php echo TANGZYPHP_VERSION.'('.TANGZYPHP_UPDATE.')';?></td>
 						</tr>
 						<tr>
 							<td class="center">4</td>

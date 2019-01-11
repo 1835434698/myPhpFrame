@@ -12,7 +12,7 @@ $x_size = 60;
 $y_size = 20;
 
 $seccode = code_random(4);
-$_SESSION['ZhimaPHP_imgcode'] = $seccode;
+$_SESSION['TangzyPHP_imgcode'] = $seccode;
 
 if(function_exists('imagecreate') && function_exists('imagecolorallocate') &&
 function_exists('imagesetpixel') && function_exists('imageString') && function_exists('imagedestroy') && function_exists('imagefilledrectangle') && function_exists('imagerectangle') && (function_exists('imagepng') || function_exists('imagejpeg'))) {

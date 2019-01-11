@@ -51,6 +51,18 @@ $sqlarr[] = "CREATE TABLE IF NOT EXISTS `".$mypdo->prefix."adminlog` (
   KEY `adminlog_admin` (`adminlog_admin`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;";
 
+$sqlarr[] = "CREATE TABLE IF NOT EXISTS `".$mypdo->prefix."apilog` (
+  `apilog_id` int(20) NOT NULL AUTO_INCREMENT,
+  `apilog_api` varchar(100) DEFAULT NULL,
+  `apilog_uid` int(11) DEFAULT NULL,
+  `apilog_request` text COMMENT '请求数据',
+  `apilog_response` text COMMENT '返回数据',
+  `apilog_time` int(11) DEFAULT NULL,
+  `apilog_ip` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`apilog_id`),
+  KEY `my_apilog` (`apilog_uid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;";
+
 $count = count($sqlarr);
 
 for($i=0; $i<$count; $i++){

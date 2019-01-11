@@ -17,24 +17,6 @@ deny from all
 #禁止目录浏览
 Options All -Indexes
 
-#======================常用配置参考================================
-
-#将诸如zhimawork.com 永久定向(301)到www.zhimawork.com
-#RewriteCond %{HTTP_HOST} !^localhost$ [NC]
-#RewriteCond %{HTTP_HOST} !^www.zhimawork.com$ [NC]
-#RewriteRule ^(.*)$ http:/www.baidu.com/$1 [L,R=301]
-
-#图片防盗链
-#RewriteCond %{HTTP_REFERER} !^$
-#RewriteCond %{HTTP_REFERER} !^http://(www.)?zhimawork.com/.*$ [NC]
-#RewriteRule .(gif|jpe?g|png)$ http:/www.baidu.com/images/nohotlink.jpg [R,L]
-
-
-#网站升级的时候，只有特定IP才能访问，其他的用户将看到一个升级页面
-#RewriteCond %{REQUEST_URI} !/upgrade.html$
-#RewriteCond %{REMOTE_HOST} !^24\.121\.202\.30
-#RewriteRule $ http:/www.baidu.com/upgrade.html [R=302,L]
-
 
 #根据IP禁止用户访问
 #order allow,deny

@@ -16,7 +16,7 @@ $vercode   = safeCheck($_POST['vercode'], 0);
 $remember  = safeCheck($_POST['remember']);//是否记住cookie
 
 //校验验证码
-if($vercode != $_SESSION['ZhimaPHP_imgcode']){
+if($vercode != $_SESSION['TangzyPHP_imgcode']){
 	echo action_msg('验证码错误', -4);
 	exit();
 }else{

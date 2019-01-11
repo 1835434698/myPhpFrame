@@ -54,7 +54,7 @@ switch($act){
 		
 	case 'reset'://重置密码
 		$id = safeCheck($_POST['id']);
-		$newpass = 'zhima999';
+		$newpass = 'admin123456';
 		
 		try{
 			$r = Admin::resetPwd($id, $newpass);

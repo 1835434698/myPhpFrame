@@ -15,18 +15,18 @@ $FLAG_LEFTMENU = 'sys_sec_info';
 $POWERID       = '7003';//权限
 Admin::checkAuth($POWERID, $ADMINAUTH);
 
-$ZHIMA_SEC_STATUS = array(
+$TANGZY_SEC_STATUS = array(
 	'ok'  => '<span class="status green">OK</span>',
 	'bad' => '<span class="status red">BAD</span>',
 	'unknown'  => '<span class="status orange">CHECK</span>'
 );
 
-$ZHIMA_SEC_INFO = array();
+$TANGZY_SEC_INFO = array();
 
 //
-//$ZHIMA_SEC_INFO['100']['req']    = '';
-//$ZHIMA_SEC_INFO['100']['status'] = $status100;
-//$ZHIMA_SEC_INFO['100']['desc']   = '';
+//$TANGZY_SEC_INFO['100']['req']    = '';
+//$TANGZY_SEC_INFO['100']['status'] = $status100;
+//$TANGZY_SEC_INFO['100']['desc']   = '';
 
 //201
 //读取上次备份日期
@@ -45,9 +45,9 @@ try{
 	$status201 = 'unknown';
 }
 
-$ZHIMA_SEC_INFO['201']['req']    = '数据库备份';
-$ZHIMA_SEC_INFO['201']['status'] = $status201;
-$ZHIMA_SEC_INFO['201']['desc']   = '有服务器操作权限的应设置数据库自动备份，否则应定期进行手动备份。上次备份时间：<strong>'.$backuptime.'</strong>。<a href="sys_backup_db.php" target="_blank">【立即备份】</a>';
+$TANGZY_SEC_INFO['201']['req']    = '数据库备份';
+$TANGZY_SEC_INFO['201']['status'] = $status201;
+$TANGZY_SEC_INFO['201']['desc']   = '有服务器操作权限的应设置数据库自动备份，否则应定期进行手动备份。上次备份时间：<strong>'.$backuptime.'</strong>。<a href="sys_backup_db.php" target="_blank">【立即备份】</a>';
 
 //101
 $ini_er = ini_get('error_reporting');
@@ -56,9 +56,9 @@ if($ini_er == 0){
 }else{
 	$status101 = 'bad';
 }
-$ZHIMA_SEC_INFO['101']['req']    = '系统上线须关闭PHP报错';
-$ZHIMA_SEC_INFO['101']['status'] = $status101;
-$ZHIMA_SEC_INFO['101']['desc']   = '如果有服务器权限，请设置php.ini中的display_errors=off。在根目录下config.inc.php中打开error_reporting(0)。';
+$TANGZY_SEC_INFO['101']['req']    = '系统上线须关闭PHP报错';
+$TANGZY_SEC_INFO['101']['status'] = $status101;
+$TANGZY_SEC_INFO['101']['desc']   = '如果有服务器权限，请设置php.ini中的display_errors=off。在根目录下config.inc.php中打开error_reporting(0)。';
 
 //102
 $debug = $mypdo->debug;
@@ -67,19 +67,19 @@ if($debug === false){
 }else{
 	$status102 = 'bad';
 }
-$ZHIMA_SEC_INFO['102']['req']    = '系统上线须关闭数据库调试';
-$ZHIMA_SEC_INFO['102']['status'] = $status102;
-$ZHIMA_SEC_INFO['102']['desc']   = '在根目录下init.php中关闭$mypdo->debug。';
+$TANGZY_SEC_INFO['102']['req']    = '系统上线须关闭数据库调试';
+$TANGZY_SEC_INFO['102']['status'] = $status102;
+$TANGZY_SEC_INFO['102']['desc']   = '在根目录下init.php中关闭$mypdo->debug。';
 
 //103
-if(PROJECTCODE == 'ZhimaPHP'){
+if(PROJECTCODE == 'TangzyPHP'){
 	$status103 = 'bad';
 }else{
 	$status103 = 'ok';
 }
-$ZHIMA_SEC_INFO['103']['req']    = '修改项目编号';
-$ZHIMA_SEC_INFO['103']['status'] = $status103;
-$ZHIMA_SEC_INFO['103']['desc']   = '在根目录下config.inc.php中修改常量PROJECTCODE的值。';
+$TANGZY_SEC_INFO['103']['req']    = '修改项目编号';
+$TANGZY_SEC_INFO['103']['status'] = $status103;
+$TANGZY_SEC_INFO['103']['desc']   = '在根目录下config.inc.php中修改常量PROJECTCODE的值。';
 
 //104
 if(empty($HTTP_PATH) || (substr($HTTP_PATH, 0, 7) != 'http://' && substr($HTTP_PATH, 0, 8) != 'https://') || substr($HTTP_PATH, -1, 1) != '/' || substr($HTTP_PATH, -2, 1) == '/'){
@@ -87,9 +87,9 @@ if(empty($HTTP_PATH) || (substr($HTTP_PATH, 0, 7) != 'http://' && substr($HTTP_P
 }else{
 	$status104 = 'ok';
 }
-$ZHIMA_SEC_INFO['104']['req']    = '正确设置访问路径';
-$ZHIMA_SEC_INFO['104']['status'] = $status104;
-$ZHIMA_SEC_INFO['104']['desc']   = '在根目录下的config.inc.php中设置$HTTP_PATH的值。访问路径应该以http://或https://开头，并以“/”结束。';
+$TANGZY_SEC_INFO['104']['req']    = '正确设置访问路径';
+$TANGZY_SEC_INFO['104']['status'] = $status104;
+$TANGZY_SEC_INFO['104']['desc']   = '在根目录下的config.inc.php中设置$HTTP_PATH的值。访问路径应该以http://或https://开头，并以“/”结束。';
 
 //105 //TODO 改进判断子目录
 if(is_writable($FILE_PATH.'userfiles')){
@@ -97,9 +97,9 @@ if(is_writable($FILE_PATH.'userfiles')){
 }else{
 	$status105 = 'bad';
 }
-$ZHIMA_SEC_INFO['105']['req']    = '设置根目录下userfiles及其子目录的写权限为777';
-$ZHIMA_SEC_INFO['105']['status'] = $status105;
-$ZHIMA_SEC_INFO['105']['desc']   = '';
+$TANGZY_SEC_INFO['105']['req']    = '设置根目录下userfiles及其子目录的写权限为777';
+$TANGZY_SEC_INFO['105']['status'] = $status105;
+$TANGZY_SEC_INFO['105']['desc']   = '';
 
 //106
 if(is_writable($LOG_PATH.'common.log') && is_writable($LOG_PATH.'debug.log') && is_writable($LOG_PATH.'backupdb.log')){
@@ -107,9 +107,9 @@ if(is_writable($LOG_PATH.'common.log') && is_writable($LOG_PATH.'debug.log') && 
 }else{
 	$status106 = 'bad';
 }
-$ZHIMA_SEC_INFO['106']['req']    = '设置日志文件的写权限';
-$ZHIMA_SEC_INFO['106']['status'] = $status106;
-$ZHIMA_SEC_INFO['106']['desc']   = '设置根目录下logs中日志文件的写权限';
+$TANGZY_SEC_INFO['106']['req']    = '设置日志文件的写权限';
+$TANGZY_SEC_INFO['106']['status'] = $status106;
+$TANGZY_SEC_INFO['106']['desc']   = '设置根目录下logs中日志文件的写权限';
 
 //107 //TODO 改进判断更多临时文件夹
 if(file_exists($FILE_PATH.'_sql') || file_exists($FILE_PATH.'_doc')){
@@ -117,9 +117,9 @@ if(file_exists($FILE_PATH.'_sql') || file_exists($FILE_PATH.'_doc')){
 }else{
 	$status107 = 'unknown';
 }
-$ZHIMA_SEC_INFO['107']['req']    = '系统上线删除开发文档和临时文件';
-$ZHIMA_SEC_INFO['107']['status'] = $status107;
-$ZHIMA_SEC_INFO['107']['desc']   = '删除各个目录中下划线开头的文件和文件夹，特别是根目录下的_sql和_doc等。';
+$TANGZY_SEC_INFO['107']['req']    = '系统上线删除开发文档和临时文件';
+$TANGZY_SEC_INFO['107']['status'] = $status107;
+$TANGZY_SEC_INFO['107']['desc']   = '删除各个目录中下划线开头的文件和文件夹，特别是根目录下的_sql和_doc等。';
 
 //108 //TODO 改进判断放在其他位置而未重命名的
 if(file_exists($FILE_PATH.'phpMyAdmin') || file_exists($FILE_PATH.'web/phpMyAdmin')){
@@ -127,9 +127,9 @@ if(file_exists($FILE_PATH.'phpMyAdmin') || file_exists($FILE_PATH.'web/phpMyAdmi
 }else{
 	$status108 = 'unknown';
 }
-$ZHIMA_SEC_INFO['108']['req']    = '系统根目录下不得存在phpMyAdmin文件夹';
-$ZHIMA_SEC_INFO['108']['status'] = $status108;
-$ZHIMA_SEC_INFO['108']['desc']   = '放在系统中的phpMyAdmin必须重命名';
+$TANGZY_SEC_INFO['108']['req']    = '系统根目录下不得存在phpMyAdmin文件夹';
+$TANGZY_SEC_INFO['108']['status'] = $status108;
+$TANGZY_SEC_INFO['108']['desc']   = '放在系统中的phpMyAdmin必须重命名';
 
 //109 //TODO 改进判断代码里面
 if(file_exists($FILE_PATH.'phpinfo.php') || file_exists($FILE_PATH.'web/phpinfo.php') || file_exists($FILE_PATH.'web/info.php')){
@@ -137,9 +137,9 @@ if(file_exists($FILE_PATH.'phpinfo.php') || file_exists($FILE_PATH.'web/phpinfo.
 }else{
 	$status109 = 'unknown';
 }
-$ZHIMA_SEC_INFO['109']['req']    = '系统上线后不得存在输出phpinfo的页面';
-$ZHIMA_SEC_INFO['109']['status'] = $status109;
-$ZHIMA_SEC_INFO['109']['desc']   = '删除系统中输出phpinfo的页面或代码';
+$TANGZY_SEC_INFO['109']['req']    = '系统上线后不得存在输出phpinfo的页面';
+$TANGZY_SEC_INFO['109']['status'] = $status109;
+$TANGZY_SEC_INFO['109']['desc']   = '删除系统中输出phpinfo的页面或代码';
 
 //110
 if(file_exists($FILE_PATH.'admin')){
@@ -147,9 +147,9 @@ if(file_exists($FILE_PATH.'admin')){
 }else{
 	$status110 = 'ok';
 }
-$ZHIMA_SEC_INFO['110']['req']    = '系统上线须对管理后台admin重命名';
-$ZHIMA_SEC_INFO['110']['status'] = $status110;
-$ZHIMA_SEC_INFO['110']['desc']   = '';
+$TANGZY_SEC_INFO['110']['req']    = '系统上线须对管理后台admin重命名';
+$TANGZY_SEC_INFO['110']['status'] = $status110;
+$TANGZY_SEC_INFO['110']['desc']   = '';
 
 //202
 /** 2018/10/17放弃
@@ -158,9 +158,9 @@ if(file_exists($FILE_PATH.'logs')){
 }else{
 	$status202 = 'ok';
 }
-$ZHIMA_SEC_INFO['202']['req']    = '系统上线须对根目录下logs进行重命名';
-$ZHIMA_SEC_INFO['202']['status'] = $status202;
-$ZHIMA_SEC_INFO['202']['desc']   = 'logs重命名后，须对应修改根目录下config.inc.php中的定义。';
+$TANGZY_SEC_INFO['202']['req']    = '系统上线须对根目录下logs进行重命名';
+$TANGZY_SEC_INFO['202']['status'] = $status202;
+$TANGZY_SEC_INFO['202']['desc']   = 'logs重命名后，须对应修改根目录下config.inc.php中的定义。';
 **/
 
 //TODO 检查所有程序的变量是否过滤
@@ -195,12 +195,12 @@ $ZHIMA_SEC_INFO['202']['desc']   = 'logs重命名后，须对应修改根目录�
 							<th width="45%">操作说明</th>
 						</tr>
 						<?php 
-							foreach($ZHIMA_SEC_INFO as $k => $v){
+							foreach($TANGZY_SEC_INFO as $k => $v){
 								echo '<tr>';
 								echo '<td class="center">'.$k.'</td>';
-								echo '<td>'.$ZHIMA_SEC_INFO[$k]['req'].'</td>';
-								echo '<td class="center">'.$ZHIMA_SEC_STATUS[$ZHIMA_SEC_INFO[$k]['status']].'</td>';
-								echo '<td>'.$ZHIMA_SEC_INFO[$k]['desc'].'</td>';
+								echo '<td>'.$TANGZY_SEC_INFO[$k]['req'].'</td>';
+								echo '<td class="center">'.$TANGZY_SEC_STATUS[$TANGZY_SEC_INFO[$k]['status']].'</td>';
+								echo '<td>'.$TANGZY_SEC_INFO[$k]['desc'].'</td>';
 								echo '</tr>';
 							}
 						?>
