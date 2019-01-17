@@ -1,0 +1,107 @@
+@charset "utf-8";
+/* CSS Document */
+div.ControlsRow, div.HeadersRow {
+	font-family: Georgia;
+}
+
+div.Canvas {
+	font-family: Lucida Console, Georgia;
+	font-size: 16px;
+	width: 96%;
+	height: 600px;
+	padding:2%;
+	overflow:auto; 
+	color: #fcebb6;
+	border: solid 1px #CECECE;
+	background-color: #272822;
+}
+
+.ObjectBrace {
+	color: #00AA00;
+	font-weight: bold;
+}
+
+.ArrayBrace {
+	color: #0033FF;
+	font-weight: bold;
+}
+
+.PropertyName {
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.String {
+	color: #ECE47E;
+}
+
+.Number {
+	color: #ff80ff;
+}
+
+.Boolean {
+	color: #00ffff;
+}
+
+.Function {
+	color: #AA6633;
+	text-decoration: italic;
+}
+
+.Null {
+	color: #cbde21;
+}
+
+.Comma {
+	color: #fcebb6;
+	font-weight: bold;
+}
+
+PRE.CodeContainer {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+PRE.CodeContainer img {
+	cursor: pointer;
+	border: none;
+	margin-bottom: -1px;
+}
+
+#CollapsibleViewDetail a {
+	padding-left: 10px;
+}
+
+#ControlsRow {
+	white-space: nowrap;
+	font: 11px Georgia;
+}
+
+#TabSizeHolder {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#HeaderTitle {
+	text-align: right;
+	font-size: 11px;
+}
+
+#HeaderSubTitle {
+	margin-bottom: 2px;
+	margin-top: 0px
+}
+
+#RawJson {
+	width: 99%;
+	height: 120px;
+}
+
+A.OtherToolsLink {
+	color: #555;
+	text-decoration: none;
+}
+
+A.OtherToolsLink:hover {
+	text-decoration: underline;
+}

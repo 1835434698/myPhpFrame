@@ -1,0 +1,5 @@
+2019-01-17 17:35:12 sql = select * from tangzy_friend  where 1=1   order by friend_time desc
+2019-01-17 17:35:36 sql = select * from tangzy_friend  where 1=1  and  = 2   order by friend_time desc
+2019-01-17 17:38:31 sql = select * from tangzy_friend  where 1=1  and friend_userid = 2   order by friend_time desc
+2019-01-17 17:38:44 sql = select * from tangzy_friend  where 1=1  and friend_touserid = 3   order by friend_time desc
+2019-01-17 17:38:52 sql = select * from tangzy_friend  where 1=1   order by friend_time desc

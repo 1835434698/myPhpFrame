@@ -1,0 +1,183 @@
+@CHARSET "UTF-8";
+
+body {
+	background-color: #f8f8f8;
+	font-family: "Microsoft Yahei";
+}
+
+#head {
+	width: 100%;
+}
+
+#head p {
+	line-height: 35px;
+	height: 35px;
+	text-align: center;
+	font-size: 26px;
+	font-weight: bold;
+	font-family: "Microsoft Yahei";
+}
+
+.message {
+	width: 100%;
+}
+
+.message p {
+	line-height: 20px;
+	height: 20px;
+	text-align: left;
+	font-size: 19px;
+	font-weight: bold;
+	font-family: "Microsoft Yahei";
+}
+
+#content {
+	width: 100%;
+	min-height: 600px;
+	padding: 20px;
+}
+
+#left {
+	width: 60%;
+	float: left;
+	min-height: 600px;
+}
+
+#right {
+	margin-left: 1%;
+	width: 37%;
+	float: left;
+	min-height: 600px;
+}
+
+#right form p {
+	margin: 15px 0;
+}
+
+#right span {
+	display: block;
+	width: 100%;
+	line-height: 30px;
+	height: 30px;
+	text-align: left;
+	font-size: 17px;
+	font-family: "Microsoft Yahei";
+}
+
+.button {
+	border: 0;
+	border-radius: 4px;
+	outline: 0;
+	cursor: pointer;
+}
+
+.button.small {
+	padding: 7px 10px;
+	font-size: .95em
+}
+
+.button.large {
+	padding: 15px 25px;
+	font-size: 1.1em
+}
+
+.button.primary {
+	color: #FFF;
+	background: #5f90b0
+}
+
+.button.primary:hover {
+	background: #5589ab
+}
+
+.button.success {
+	color: #FFF;
+	background: #4daf7c
+}
+
+.button.success:hover {
+	background: #48a474
+}
+
+.button.danger {
+	color: #FFF;
+	background: #e6623c
+}
+
+.button.danger:hover {
+	background: #e4572e
+}
+
+.select {
+	width: 30%;
+	height: 2.3em;
+	line-height: 2.3em;
+	text-align: left;
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	font-size: .98em;
+}
+
+input {
+	text-align: left;
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	font-size: .98em;
+}
+
+.input-text {
+	width: 50%;
+	height: 2.1em;
+	line-height: 2.1em;
+	padding-left: 5px;
+}
+
+.input-radio {
+	/*height: 1.5em;
+    line-height: 1.5em;*/
+	
+}
+
+.input-file {
+	width: 50%;
+	height: 2.1em;
+	line-height: 2.1em;
+	position: relative;
+	cursor: pointer;
+	color: #888;
+	background: #fafafa;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	overflow: hidden;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1
+}
+
+.input-file input {
+	position: absolute;
+	font-size: 100px;
+	right: 0;
+	top: 0;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	cursor: pointer
+}
+
+.input-file:hover {
+	color: #444;
+	background: #eee;
+	border-color: #ccc;
+	text-decoration: none
+}
+
+textarea {
+	width: 50%;
+	height: 40px;
+	resize: vertical;
+	border: 1px solid #CCC;
+	/*border-radius:8px;*/
+	padding: 4px;
+	box-shadow: 2px 2px 5px #d3d6da;
+	-moz-box-shadow: 2px 2px 5px #d3d6da;
+}

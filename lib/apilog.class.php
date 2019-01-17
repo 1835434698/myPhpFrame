@@ -30,6 +30,20 @@ class Apilog {
 		$Table_apilog = new Table_apilog();
 		return $Table_apilog->add($attr);
 	}
+
+    /**
+     * 修改记录api日志信息
+     *
+     * @param $id         用户ID
+     * @param $attr       用户属性数组，数组键值参考add()函数
+     *
+     */
+    static public function edit($id, $attr){
+        if(empty($attr)) throw new MyException('内容不能为空', 101);
+        if(empty($id)) throw new MyException('id不能为空', 102);
+        $Table_apilog = new Table_apilog();
+        return $Table_apilog->edit($id,$attr);
+    }
     
 	/** 
 	 * api日志记录列表

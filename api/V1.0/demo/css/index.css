@@ -1,0 +1,60 @@
+*{
+	font-family: "Microsoft yahei";
+}
+a{text-decoration: none;color:#333333;}
+table.altrowstable {
+	font-family: verdana, arial, sans-serif;
+	font-size: 18px;
+	color: #333333;
+	width: 80%;
+	margin: 0 auto; border-width : 1px;
+	border-color: #beb9b4;
+	border-collapse: collapse;
+	border-width: 1px;
+}
+
+table.altrowstable th {
+	border-width: 1px;
+	padding: 8px;
+	color: #ffffff; border-style : solid;
+	border-color: #beb9b4;
+	background: grey;
+	border-style: solid;
+}
+table.altrowstable .title{
+	background: #beb9b4;
+	text-align:left;
+}
+table.altrowstable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #beb9b4;
+}
+
+.oddrowcolor {
+	background-color: #d4e3e5;
+}
+
+.evenrowcolor {
+	background-color: #c3dde0;
+}
+
+.n1 {
+	width: 10%;
+	text-align: center;
+}
+
+.n2 {
+	width: 50%;
+}
+
+.n3 {
+	width: 20%;
+	text-align: center;
+}
+
+.n4 {
+	width: 20%;
+	text-align: center;
+}

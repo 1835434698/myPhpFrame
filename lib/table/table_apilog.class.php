@@ -35,17 +35,58 @@ class Table_apilog extends Table {
 	public function add($attr){
 		$param = array (
 			'apilog_api'   => array('string', $attr['api']),
-			'apilog_uid'   => array('number', $attr['uid']),
-			'apilog_request'   => array('string', $attr['request']),
-			'apilog_response'   => array('string', $attr['response']),
-			'apilog_time'   => array('number', $attr['time']),
-			'apilog_ip'   => array('string', $attr['ip'])
+			'apilog_time'   => array('number', $attr['time'])
 		);
+		if (!empty($attr['uid'])){
+            $param['apilog_uid']=array('number', $attr['uid']);
+        }
+		if (!empty($attr['request'])){
+            $param['apilog_request']=array('string', $attr['request']);
+        }
+		if (!empty($attr['response'])){
+            $param['apilog_response']=array('string', $attr['response']);
+        }
+		if (!empty($attr['ip'])){
+            $param['apilog_ip']=array('string', $attr['ip']);
+        }
         return $this->pdo->sqlinsert($this->table_fullname, $param);
 
 	}
 
-	//获取列表（分页）
+    /**
+     * 修改记录api日志信息
+     *
+     * @param $id         用户ID
+     * @param $attr       用户属性数组，数组键值参考add()函数
+     *
+     */
+    public function edit($id, $attr){
+        if (!empty($attr['uid'])){
+            $param['apilog_uid']=array('number', $attr['uid']);
+        }
+        if (!empty($attr['api'])){
+            $param['apilog_api']=array('string', $attr['api']);
+        }
+        if (!empty($attr['request'])){
+            $param['apilog_request']=array('string', $attr['request']);
+        }
+        if (!empty($attr['response'])){
+            $param['apilog_response']=array('string', $attr['response']);
+        }
+        if (!empty($attr['ip'])){
+            $param['apilog_ip']=array('string', $attr['ip']);
+        }
+
+        $where = array(
+            'apilog_id'		  => array('number', $id)
+        );
+
+        return $this->pdo->sqlupdate($this->table_fullname, $param, $where);
+    }
+
+
+
+    //获取列表（分页）
 	//$count、$page和$pagesize都为0时，返回全部结果（适用于无需分页的情况）
 	//
 	//@param $filter array -- 过滤条件，格式见Table::filterToWhere
