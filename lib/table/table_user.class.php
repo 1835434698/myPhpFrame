@@ -32,6 +32,7 @@ class Table_user extends Table {
         $attr['attribute'] = 'user_attribute';//1、公开坐标，2、保密坐标
         $attr['openid'] = 'user_openid';//三方帐号
         $attr['time'] = 'user_time';//添加时间
+        $attr['password'] = 'user_password';//密码
         return $attr;
     }
 
@@ -71,6 +72,9 @@ class Table_user extends Table {
         if (!empty($attr['openid'])){
             $param['user_openid'] = array('string', $attr['openid']);
         }
+        if (!empty($attr['passWord'])){
+            $param['user_password'] = array('string', $attr['passWord']);
+        }
         if (!empty($attr['time'])){
             $param['user_time'] = array('number', $attr['time']);
         }
@@ -103,9 +107,32 @@ class Table_user extends Table {
     }
 
     /**
+     * 根据openId获取详情
+     *
+     * @param $openId openId
+     *
+     */
+    public function getInfoByOpenId($openId){
+
+        $openId = $this->pdo->sql_check_input(array('string', $openId));
+
+        $sql = "select * from ". $this->table_fullname ." where user_openid = $openId limit 1";
+
+        $rs = $this->pdo->sqlQuery($sql);
+        $r  = array();
+        if($rs){
+            foreach($rs as $key => $val){
+                $r[$key] = $this->dataToAttr($val);
+            }
+            return $r[0];
+        }else{
+            return $r;
+        }
+    }
+    /**
      * 根据手机号获取详情
      *
-     * @param $mobile 用户手机
+     * @param $openId openId
      *
      */
     public function getInfoByMobile($mobile){
@@ -113,6 +140,43 @@ class Table_user extends Table {
         $mobile = $this->pdo->sql_check_input(array('number', $mobile));
 
         $sql = "select * from ". $this->table_fullname ." where user_mobile = $mobile limit 1";
+
+        $rs = $this->pdo->sqlQuery($sql);
+        $r  = array();
+        if($rs){
+            foreach($rs as $key => $val){
+                $r[$key] = $this->dataToAttr($val);
+            }
+            return $r[0];
+        }else{
+            return $r;
+        }
+    }
+    /**
+     * 根据Email获取详情
+     *
+     * @param $Email Email
+     *
+     */
+    public function getLogin($filter){
+        $passWord = $this->pdo->sql_check_input(array('string', $filter['passWord']));
+
+        $sql = "select * from ". $this->table_fullname ." where user_password = $passWord";
+
+        if (!empty($filter['email'])){
+            $email = $this->pdo->sql_check_input(array('string', $filter['email']));
+            $sql.=" and user_email = $email";
+        }
+        if (!empty($filter['name'])){
+            $name= $this->pdo->sql_check_input(array('string', $filter['name']));
+            $sql.=" and user_name = $name";
+        }
+        if (!empty($filter['mobile'])){
+            $mobile= $this->pdo->sql_check_input(array('', $filter['mobile']));
+            $sql.=" and user_mobile = $mobile";
+        }
+
+        $sql .= " limit 1";
 
         $rs = $this->pdo->sqlQuery($sql);
         $r  = array();
@@ -235,6 +299,9 @@ class Table_user extends Table {
         }
         if (!empty($attr['openid'])){
             $param['user_openid'] = array('string', $attr['openid']);
+        }
+        if (!empty($attr['passWord'])){
+            $param['user_password'] = array('string', $attr['passWord']);
         }
         if (!empty($attr['time'])){
             $param['user_time'] = array('number', $attr['time']);

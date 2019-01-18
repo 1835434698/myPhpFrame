@@ -12,6 +12,7 @@ require('../../init.php');
 $attr['name'] = $name = $_POST['name'];
 $attr['mobile'] = $mobile  = $_POST['mobile'];//
 $attr['email'] = $email  = $_POST['email'];
+$attr['passWord'] = $passWord  = $_POST['passWord'];
 $attr['sex'] = $sex  = $_POST['sex'];
 $attr['province'] = $province  = $_POST['province'];
 $attr['city'] = $city  = $_POST['city'];
@@ -34,6 +35,7 @@ $api = New API($apiLogId);
 $name  = safeCheck($name, 0);//登录名
 $mobile  = safeCheck($mobile);//
 $email  = safeCheck($email, 0);//
+$passWord  = safeCheck($passWord, 0);//
 $sex  = safeCheck($sex);//
 $province  = safeCheck($province, 0);//
 $city  = safeCheck($city, 0);//
@@ -65,6 +67,7 @@ if ($user){
 $attr['name'] = $name;
 $attr['mobile'] = $mobile;
 $attr['email'] = $email;
+$attr['passWord'] = $passWord;
 $attr['sex'] = $sex;
 $attr['sex'] = $sex;
 $attr['province'] = $province;

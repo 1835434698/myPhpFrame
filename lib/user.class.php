@@ -19,6 +19,7 @@ class User {
     public  $longitude   = "";   //
     public  $latitude   = "";   //
     public  $attribute   = "";   //
+    public  $password   = "";   //
     public  $openid   = "";   //
     public  $sex   = 0;   //
     public  $type   = 0;   //
@@ -32,17 +33,23 @@ class User {
 	 */
 	static public function add($attr){
 		if(empty($attr)) throw new MyException('用户内容不能为空', 101);
-		if(empty($attr['email'])) throw new MyException('email不能为空', 102);
         $attr['time'] = time();
-		$Table_user = new Table_user();
+        $Table_user = new Table_user();
 
-        $rs = $Table_user->getInfoByEmail($attr['email']);
-        if ($rs) throw new MyException('email已经被注册', 103);
-        $rs = $Table_user->getInfoByMobile($attr['mobile']);
-        if ($rs) throw new MyException('mobile已经被注册', 105);
-
-
-		return $Table_user->add($attr);
+        if(!empty($attr['openid'])){
+            return $Table_user->add($attr);
+        }else{
+            if(empty($attr['email'])){
+                throw new MyException('email不能为空', 102);
+            }
+            $rs = $Table_user->getInfoByEmail($attr['email']);
+            if ($rs) throw new MyException('email已经被注册', 103);
+            if(!empty($attr['mobile'])){
+                $rs = $Table_user->getInfoByMobile($attr['mobile']);
+                if ($rs) throw new MyException('mobile已经被注册', 105);
+            }
+            return $Table_user->add($attr);
+        }
 	}
 
 	/**
@@ -68,6 +75,17 @@ class User {
 		$Table_user = new Table_user();
 		return $Table_user->getInfoByMobile($mobile);
 	}
+	/**
+	 * 根据openId获取详情
+	 *
+     * @param $openId openId
+	 *
+	 */
+	static public function getInfoByOpenId($openId){
+		if(empty($openId)) throw new MyException('用户openId不能为空', 101);
+		$Table_user = new Table_user();
+		return $Table_user->getInfoByOpenId($openId);
+	}
 
 	/**
 	 * 根据Email获取详情
@@ -79,6 +97,21 @@ class User {
 		if(empty($email)) throw new MyException('用户email不能为空', 101);
 		$Table_user = new Table_user();
 		return $Table_user->getInfoByEmail($email);
+	}
+
+	/**
+	 * 根据Email获取详情
+	 *
+     * @param $Email Email
+	 *
+	 */
+	static public function getLogin($attr){
+		if(empty($attr))
+		    throw new MyException('登录信息不能为空', 101);
+		$Table_user = new Table_user();
+		if (empty($attr['email']) && empty($attr['name']) && empty($attr['mobile']))
+		    throw new MyException('帐号或者密码错误', 102);
+		return $Table_user->getLogin($attr);
 	}
     
 	/** 

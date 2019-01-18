@@ -57,6 +57,7 @@ CREATE TABLE `tangzy_user` (
   `user_attribute` tinyint(2) DEFAULT NULL COMMENT '1、公开坐标，2、保密坐标',
   `user_openid` varchar(50) DEFAULT NULL COMMENT '三方帐号',
   `user_time` int(11) DEFAULT NULL COMMENT '创建时间',
+  `user_password` varchar(80) DEFAULT NULL COMMENT '密码',
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
 
