@@ -15,7 +15,7 @@ $attr['source'] = $source      = $_POST['source'];
 $attr['vcode'] = $vcode     = $_POST['vcode'];
 
 $attr1['request'] = json_encode_cn($attr);
-$attr1['api'] = 'register.php';
+$attr1['api'] = 'addFriend.php';
 $attr1['ip'] = $_SERVER['REMOTE_ADDR'];;
 $apiLogId = Apilog::add($attr1);
 $attr1=null;
