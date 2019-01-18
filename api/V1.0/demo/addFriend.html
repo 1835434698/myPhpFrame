@@ -16,39 +16,20 @@
 
 		$(function(){
 			$('#btn').click(function(){
-				var name = $('#name').val();
-                var mobile = $('#mobile').val();
-                var email = $('#email').val();
-                var sex = $('#sex').val();
-                var province = $('#province').val();
-                var city = $('#city').val();
-                var area = $('#area').val();
-                var longitude = $('#longitude').val();
-                var latitude = $('#latitude').val();
-                var attribute = $('#attribute').val();
-                var openid = $('#openid').val();
+				var uid = $('#uid').val();
+                var toUid = $('#toUid').val();
 				var source = $('#source').val();
-				var vcode = $.md5($.md5(email)+$.md5(email)+$.md5(source));
+				var vcode = $.md5($.md5(toUid)+$.md5(toUid)+$.md5(source));
 				$('#vcode').val(vcode);
 				$.ajax({
 					type         : 'POST',
 					data         : {
-                        name : name,
-                        mobile    : mobile,
-                        email    : email,
-                        mobile    : mobile,
-                        sex    : sex,
-                        province    : province,
-                        city    : city,
-                        area    : area,
-                        longitude    : longitude,
-                        latitude    : latitude,
-                        attribute    : attribute,
-                        openid    : openid,
+                        uid : uid,
+                        toUid    : toUid,
                         source  : source,
 						vcode   : vcode
 					},
-					url :         '../register.php',
+					url :         '../addFriend.php',
 					beforeSend :  function(data){
 						$('#Canvas').html('<p>请求处理中...</p>');
 					},
@@ -74,9 +55,8 @@
 		<div id="right">
 			<div class ="message"><p>请求数据：</p></div>
 			<form>
-				<p><span>用户名：</span><input type="text" class="input-text" id="name"/></p>
-				<p><span>手机：</span><input type="text" class="input-text" id="mobile"/></p>
-				<p><span>邮箱：</span><input type="text" class="input-text" id="email"/></p>
+				<p><span>uid：</span><input type="text" class="input-text" id="uid"/></p>
+				<p><span>toUid：</span><input type="text" class="input-text" id="toUid"/></p>
 				<p>
 					<span>来源：</span>
 					<select id="source" class="select">

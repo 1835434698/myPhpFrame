@@ -59,26 +59,27 @@ $vcode_raw = md5(md5($email).md5($email).md5($source));
 if($vcode_raw!=$vcode){
     $api->ApiError('003', '校验码不正确');
 }
-$user = User::getInfoByEmail($email);
-if ($user){
-    $api->ApiError('004', '该邮箱已经注册');
-}
-
-$attr['name'] = $name;
-$attr['mobile'] = $mobile;
-$attr['email'] = $email;
-$attr['passWord'] = $passWord;
-$attr['sex'] = $sex;
-$attr['sex'] = $sex;
-$attr['province'] = $province;
-$attr['city'] = $city;
-$attr['area'] = $area;
-$attr['longitude'] = $longitude;
-$attr['latitude'] = $latitude;
-$attr['attribute'] = $attribute;
-$attr['openid'] = $openid;
 
 try{
+    $user = User::getInfoByEmail($email);
+    if ($user){
+        $api->ApiError('004', '该邮箱已经注册');
+    }
+
+    $attr['name'] = $name;
+    $attr['mobile'] = $mobile;
+    $attr['email'] = $email;
+    $attr['passWord'] = $passWord;
+    $attr['sex'] = $sex;
+    $attr['sex'] = $sex;
+    $attr['province'] = $province;
+    $attr['city'] = $city;
+    $attr['area'] = $area;
+    $attr['longitude'] = $longitude;
+    $attr['latitude'] = $latitude;
+    $attr['attribute'] = $attribute;
+    $attr['openid'] = $openid;
+
     $rs = User::add($attr);
     if ($rs > 0){
         $response = json_encode_cn(array('status' => '0', 'message' => '注册成功'));

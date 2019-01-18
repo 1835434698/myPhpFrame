@@ -51,7 +51,6 @@ class Friend {
 	static public function getListByPage($attr = null, $count = 0, $page = 0, $pagesize = 0){
         $filter = array();
         if (!empty($attr)){
-
             if (!empty($attr['userId']))
                 $filter['userid'] = array($attr['userId'], '=n');
 
