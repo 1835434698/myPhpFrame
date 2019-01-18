@@ -7,7 +7,6 @@
  */
 header("Access-Control-Allow-Origin: *");
 require('../../init.php');
-$api = New API(1);
 
 
 $attr['name'] = $name = $_POST['name'];
@@ -30,6 +29,7 @@ $attr1['ip'] = $_SERVER['REMOTE_ADDR'];;
 $apiLogId = Apilog::add($attr1);
 $attr1=null;
 $attr=array();
+$api = New API($apiLogId);
 
 $name  = safeCheck($name, 0);//登录名
 $mobile  = safeCheck($mobile);//
@@ -48,18 +48,18 @@ $vcode     = safeCheck($vcode, 0);
 
 
 if($email == '')
-    $api->ApiError('001', 'email不能为空', $apiLogId);
-if($source == '')  $api->ApiError('002', '来源不能为空', $apiLogId);
+    $api->ApiError('001', 'email不能为空');
+if($source == '')  $api->ApiError('002', '来源不能为空');
 $api ->source = $source;
 
 $vcode_raw = md5(md5($email).md5($email).md5($source));
 
 if($vcode_raw!=$vcode){
-    $api->ApiError('003', '校验码不正确', $apiLogId);
+    $api->ApiError('003', '校验码不正确');
 }
 $user = User::getInfoByEmail($email);
 if ($user){
-    $api->ApiError('004', '该邮箱已经注册', $apiLogId);
+    $api->ApiError('004', '该邮箱已经注册');
 }
 
 $attr['name'] = $name;
@@ -85,10 +85,10 @@ try{
 //    echo json_encode_cn(array('status' => 'ok', 'data' => $data));
 //    $api->apicount();
     }else{
-        $api->ApiError('005', '注册失败', $apiLogId);
+        $api->ApiError('005', '注册失败');
     }
 }catch (MyException $e){
-    $api->ApiError($e->getCode(), $e->jsonMsg(), $apiLogId);
+    $api->ApiError($e->getCode(), $e->jsonMsg());
     echo $e->jsonMsg();
 }
 
