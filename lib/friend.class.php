@@ -59,12 +59,6 @@ class Friend {
 
             if (!empty($attr['time']))
                 $filter['time'] = array($attr['time'], '=n');
-
-            if (!empty($attr['page']))
-                $filter['page'] = array($attr['page'], '=n');
-
-            if (!empty($attr['pagesize']))
-                $filter['pagesize'] = array($attr['pagesize'], '=n');
         }
 		$Table_friend = new Table_friend();
 		return $Table_friend->getList($filter, $count, $page, $pagesize);

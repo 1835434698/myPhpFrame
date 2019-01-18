@@ -10,12 +10,12 @@ require('../../init.php');
 
 
 $attr['uid'] = $uid = $_POST['uid'];
-$attr['toUid'] = $toUid  = $_POST['toUid'];//
+$attr['friendId'] = $friendId = $_POST['friendId'];//
 $attr['source'] = $source      = $_POST['source'];
 $attr['vcode'] = $vcode     = $_POST['vcode'];
 
 $attr1['request'] = json_encode_cn($attr);
-$attr1['api'] = 'addFriend.php';
+$attr1['api'] = 'delFriend.php';
 $attr1['ip'] = $_SERVER['REMOTE_ADDR'];;
 $apiLogId = Apilog::add($attr1);
 $attr1=null;
@@ -23,50 +23,52 @@ $attr=array();
 $api = New API($apiLogId);
 
 $uid  = safeCheck($uid);//
-$toUid  = safeCheck($toUid);//
+$friendId  = safeCheck($friendId);//
 $source      = safeCheck($source);
 $vcode     = safeCheck($vcode, 0);
 
 if($uid == '')
     $api->ApiError('001', 'uid不能为空');
-if($toUid == '')
-    $api->ApiError('002', 'toUid不能为空');
+if($friendId == '')
+    $api->ApiError('002', 'friendId不能为空');
 if($source == '')  $api->ApiError('003', '来源不能为空');
 $api ->source = $source;
 
-$vcode_raw = md5(md5($toUid).md5($toUid).md5($source));
+$vcode_raw = md5(md5($uid).md5($friendId).md5($source));
 
 if($vcode_raw!=$vcode){
     $api->ApiError('004', '校验码不正确');
 }
+
 try{
     $user = User::getInfoById($uid);
     if (!$user){
         $api->ApiError('005', '该用户不存在');
     }
-    if ($uid == $toUid){
-        $api->ApiError('006', '不能添加自己');
-    }
-    $toUser = User::getInfoById($toUid);
-    if (!$toUser){
-        $api->ApiError('007', '被添加用户不存在');
+    if ($uid == $friendId){
+        $api->ApiError('006', '不能删除自己');
     }
     $attr['userId'] = $uid;
-    $attr['toUserId'] = $toUid;
-    $friendCount = Friend::getListByPage($attr, 1);
-    if ($friendCount > 0){
-        $api->ApiError('008', '你们已经是朋友了');
-    }else{
-        $friend = Friend::add($attr);
-        if ($friend > 0){
-            $response = json_encode_cn(array('status' => '0', 'message' => '添加成功'));
-            echo $response;
-            $attr['response']= $response;
-            Apilog::edit($apiLogId, $attr);
-        }else{
-            $api->ApiError('009', '添加失败');
+    $attr['toUserId'] = $friendId;
+    $friends = Friend::getListByPage($attr);
+    if (sizeof($friends)> 0){
+        foreach ($friends as $friend){
+            Friend::del($friend['id']);
         }
+    }else{
+        $api->ApiError('007', '你们不是好友关系');
     }
+
+    $toUser = User::getInfoById($friendId);
+    if (!$toUser){
+        $api->ApiError('007', 'friendId不存在');
+    }
+
+    $response = json_encode_cn(array('status' => '0', 'message' => '删除成功'));
+    echo $response;
+    $attr['response']= $response;
+    Apilog::edit($apiLogId, $attr);
+    exit();
 }catch (MyException $e){
     $api->ApiError($e->getCode(), $e->jsonMsg());
     echo $e->jsonMsg();
