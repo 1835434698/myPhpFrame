@@ -3,3 +3,7 @@
 2019-01-17 17:38:31 sql = select * from tangzy_friend  where 1=1  and friend_userid = 2   order by friend_time desc
 2019-01-17 17:38:44 sql = select * from tangzy_friend  where 1=1  and friend_touserid = 3   order by friend_time desc
 2019-01-17 17:38:52 sql = select * from tangzy_friend  where 1=1   order by friend_time desc
+2019-01-18 10:46:32 sql = select * from tangzy_user where user_password = '123456' and user_mobile = 18610972546 limit 1
+2019-01-18 10:47:48 sql = select * from tangzy_user where user_password = '123456' and user_mobile = 18610972546 limit 1
+2019-04-22 15:26:15 sql = select * from tangzy_apilog  where 1=1   order by apilog_time desc limit 0, 15
+2019-04-22 15:26:26 sql = select * from tangzy_apilog  where 1=1  and apilog_api = 'delFriend.php'   order by apilog_time desc limit 0, 15
